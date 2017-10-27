@@ -1,1 +1,4 @@
-# Parallelizing-2D-Wave-Diffusion
+# 1. What this Program does?
+parallelize a sequential version of a two-dimensional wavediffusion program, using a hybrid form of MPI and OpenMPI.
+## Schroedinger's Wave Dissemination
+Assume the water surface in a two-dimensional square bucket. To simulate wavedissemination over this water surface, let’s partition this square in mesh and thusinto N-by-N cells. Each cell(i, j) where 0 < i, j < N-1 maintains the height of itswater surface. A wave is disseminated north, east, south, and west of each cell,and therefore cell(i, j) computes its new surface height from the previous heightof itself and its four neighboring cells: cell(i+1, j), cell(i-1, j), cell(i, j+1) andcell(i, j-1). Let Zt_i,j, Zt-1_i,j, and Zt-2_i,j be the surface height of cell(i, j) attime t, time t-1, and time t-2 respectively. No wave at cell(i, j) at time t meansZt_i,j = 0.0. The water surface can go up and down between 20.0 and -20.0through the wave dissemination.
